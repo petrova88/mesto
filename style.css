@@ -174,8 +174,8 @@
 }
 
 .popup {
-    padding-left: 19px;
-    padding-right: 19px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 282px;
     position: fixed;
     top: 0;
@@ -188,11 +188,10 @@
     background-color: #FFFFFF;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    
 }
 
 .popup__close-btn {
-    background-color: #000000;
+    background: rgba(0, 0, 0, 0);
     margin-top: 87px;
     outline: 1px solid red;
     background-image: url(./images/close-icon.png);
@@ -203,7 +202,8 @@
     outline: none;
     width: 20px;
     height: 20px;
-    justify-self: flex-end;
+    margin-left: auto;
+    margin-left: 262px;
 }
 
 .popup__edit {
@@ -213,10 +213,11 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+
 }
 
 .popup__title {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     margin-top: 75px;
     font-family: 'Inter';
     font-weight: 400;
@@ -225,10 +226,12 @@
     max-width: 238px;
     margin-right: 22px;
     margin-left: 22px;
+    height: 27px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .popup__subtitle {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     margin-top: 30px;
     font-family: 'Inter';
     font-weight: 400;
@@ -238,6 +241,9 @@
     max-width: 238px;
     margin-right: 22px;
     margin-left: 22px;
+    height: 27px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 .popup__submit-btn {
@@ -259,6 +265,8 @@
     margin-bottom: 25px;
     margin-right: 22px;
     margin-left: 22px;
+    border-radius: 2px;
+    
 }
 
 
@@ -492,3 +500,48 @@
     }
 }
 
+@media screen and (min-width: 800px) and (max-width: 40000px) {
+    .popup {
+        max-width: 430px;
+    }
+
+    .popup__container {
+
+    }
+
+    .popup__close-btn {
+        background-image: url(./images/close-icon-big.png);
+        object-fit: cover;
+        width: 32px;
+        height: 32px;
+        margin-left: 430px;
+    }
+
+    .popup__edit {
+        margin-top: 8px;
+        padding-top: 34px;
+        margin-left: 36px;
+        margin-right: 64px;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .popup__title {
+        margin-left: 36px;
+        margin-right: 36px;
+        max-width: 358px;
+    }
+
+    .popup__subtitle {
+        margin-left: 36px;
+        margin-right: 36px;
+        max-width: 358px;
+    }
+
+    .popup__submit-btn {
+        margin-left: 36px;
+        margin-right: 36px;
+        width: 358px;
+    }
+}
