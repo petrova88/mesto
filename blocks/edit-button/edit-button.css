@@ -1,0 +1,57 @@
+.edit-button {
+    background-color: #000000;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    margin-top: -26px;
+    margin-left: 264px;
+}
+
+.edit-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (min-width: 321px) and (max-width: 460px) {
+    .edit-button {
+        margin-left: 82.5vw;
+    }
+}
+
+@media screen and (min-width: 461px) and (max-width: 600px) {
+    .edit-button {
+        margin-left: 73vw;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 767px) {
+    .edit-button {
+        margin-left: 68vw;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+    .edit-button {
+        margin-left: 25vw;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1280px) {
+    .edit-button {
+        margin-left: 25vw;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 40000px) {
+    .edit-button {
+        margin-left: 310px;
+        width: 24px;
+        height: 24px;
+    }
+}

@@ -1,0 +1,21 @@
+.photo__like {
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    display: inline-block;
+    border: none; 
+    outline: none;
+    width: 22px;
+    height: 19px;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-left: auto;
+}
+
+.photo__like:hover {
+    opacity: 0.5;
+}
+
+.photo__like:active {
+    background: #000000;
+}

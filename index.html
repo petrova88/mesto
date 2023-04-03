@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title lang="ru">Mesto</title>
-        <link rel="stylesheet" href="./style.css"/>
+        <link rel="stylesheet" href="./index.css"/>
     </head>
         <body class="body">
             <div class="page">
@@ -91,21 +91,21 @@
                     </section>
 
                     <footer class="footer">
-                        <p class="footer_text">© 2023 Mesto Russia</p>
+                        <p class="footer__text">© 2023 Mesto Russia</p>
                     </footer>
                 </main>
             </div>
 
-            <div class="popup">
+            <div class="popup popup_opened">
                 <button type="button" class="popup__close-btn"></button>
                 <div class="popup__container">
                     <h3 class="popup__edit">Редактировать профиль</h3>
-                    <p class="popup__title">Жак-Ив Кусто</p>
-                    <p class="popup__subtitle">Исследователь океана</p>
+                    <input class="popup__title" type="text" placeholder="Имя" ></p>
+                    <input class="popup__subtitle" type="text" placeholder="О себе"></p>
                     <button type="button" class="popup__submit-btn">Сохранить</button>
                 </div>
 
             </div>
-
+            <script src="/script.js"></script>
         </body>
 </html>
