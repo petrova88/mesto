@@ -2,7 +2,7 @@
     background-color: rgba(0, 0, 0, 0);
     margin-top: 87px;
     outline: 1px solid red;
-    background-image: url(./images/close-icon.png);
+    background-image: url(../../../images/close-icon.png);
     border: none;
     outline: none;
     display: inline-block;
@@ -38,7 +38,7 @@
 
 @media screen and (min-width: 901px) and (max-width: 1279px) {
     .popup__close-btn {
-        background-image: url(./images/close-icon-big.png);
+        background-image: url(../../../images/close-icon-big.png);
         width: 32px;
         height: 32px;
         margin-left: 73vw;
@@ -47,7 +47,7 @@
 
 @media screen and (min-width: 1280px) and (max-width: 1800px) {
     .popup__close-btn {
-        background-image: url(./images/close-icon-big.png);
+        background-image: url(../../../images/close-icon-big.png);
         width: 32px;
         height: 32px;
         margin-left: 67.4vw;
@@ -56,7 +56,7 @@
 
 @media screen and (min-width: 1801px) and (max-width: 3000px) {
     .popup__close-btn {
-        background-image: url(./images/close-icon-big.png);
+        background-image: url(../../../images/close-icon-big.png);
         width: 32px;
         height: 32px;
         margin-left: 60vw;
@@ -65,7 +65,7 @@
 
 @media screen and (min-width: 3001px) and (max-width: 6000px) {
     .popup__close-btn {
-        background-image: url(./images/close-icon-big.png);
+        background-image: url(../../../images/close-icon-big.png);
         width: 32px;
         height: 32px;
         margin-left: 56vw;

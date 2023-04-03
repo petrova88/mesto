@@ -1,4 +1,4 @@
-.popup__title {
+.popup__name {
     border:none;
     background-image:none;
     background-color:transparent;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 800px) and (max-width: 40000px) {
-    .popup__title {
+    .popup__name {
         margin-top: 54px;
         margin-left: 36px;
         margin-right: 36px;

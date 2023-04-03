@@ -1,4 +1,4 @@
-.popup__subtitle {
+.popup__job {
     border:none;
     background-image:none;
     background-color:transparent;
@@ -19,7 +19,7 @@
 }
 
 @media screen and (min-width: 800px) and (max-width: 40000px) {
-    .popup__subtitle {
+    .popup__job {
         margin-left: 36px;
         margin-right: 36px;
         width: 358px;
