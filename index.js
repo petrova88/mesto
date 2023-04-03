@@ -14,7 +14,8 @@ function closePopup() {
 } 
 popupCloseBtn.addEventListener('click', closePopup);
 
-// const formElement = document.querySelector('.popup__submit-btn');
+
+// функция, которая сохраняет введенные данные из input
 const nameInput = document.querySelector('.popup__name');
 const jobInput = document.querySelector('.popup__job');
 
@@ -25,11 +26,12 @@ function handleFormSubmit (evt) {
     const profileName = document.querySelector('.popup__name').value;
     const profileJob = document.querySelector('.popup__job').value;
     document.querySelector('.profile__title').innerHTML = profileName;
-    document.querySelector('.profile__subtitle').innerHTML = profileJob;
-    
+    document.querySelector('.profile__subtitle').innerHTML = profileJob;   
 }
 editPopup.addEventListener('click', handleFormSubmit);
 
+
+// функция, которая сохраняет значения и закрывает попап при нажатии кнопки Сохранить
 const saveBtn = document.querySelector('.popup__submit-btn');
 function closeSavePopup () {
     popup.classList.remove ('popup_opened');

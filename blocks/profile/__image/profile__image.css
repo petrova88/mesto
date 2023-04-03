@@ -6,7 +6,7 @@
     border-radius: 100px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1140px) {
+@media screen and (min-width: 768px) and (max-width: 400000px) {
     .profile__image {
         margin-left: 0;
         margin-top: 36.25px;
@@ -14,18 +14,3 @@
     }
 }
 
-@media screen and (min-width: 1140px) and (max-width: 1280px) {
-    .profile__image {
-        margin-left: 0;
-        margin-top: 36.25px;
-        margin-right: 41.25px;
-    }
-}
-
-@media screen and (min-width: 1280px) and (max-width: 400000px) {
-    .profile__image {
-        margin-left: 0;
-        margin-top: 36.25px;
-        margin-right: 41.25px;
-    }
-}
