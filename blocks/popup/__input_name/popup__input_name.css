@@ -1,4 +1,4 @@
-.popup__name {
+.popup__input_name {
     border:none;
     background-image:none;
     background-color:transparent;
@@ -17,8 +17,8 @@
 }
 
 @media screen and (min-width: 800px) and (max-width: 40000px) {
-    .popup__name {
-        margin-top: 54px;
+    .popup__input_name {
+        margin-top: 44px;
         margin-left: 36px;
         margin-right: 36px;
         width: 358px;

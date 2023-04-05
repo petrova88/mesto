@@ -7,7 +7,6 @@
 @media screen and (min-width: 581px) and (max-width: 909px) {
     .photos {
         grid-template-columns: 1fr 1fr;
-        row-gap: 20px;
         column-gap: 17px;
         max-width: 581px;
         margin-right: auto;
@@ -15,10 +14,10 @@
     }
 }
 
-@media screen and (min-width: 910px) and (max-width: 30000px) {
+@media screen and (min-width: 910px) {
     .photos {
+        margin-top: 52px;
         grid-template-columns: repeat(3, 1fr);
-        row-gap: 20px;
         column-gap: 17px;
         max-width: 880px;
         margin-right: auto;
