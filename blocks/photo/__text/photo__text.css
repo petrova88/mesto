@@ -8,4 +8,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 206px;
+    margin-bottom: 27px;
 }

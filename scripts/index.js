@@ -40,4 +40,4 @@ function closeSavePopup () {
 editPopup.addEventListener('click', openPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 saveBtn.addEventListener('click', closeSavePopup);
-popupInput.addEventListener('sumnit', handleFormSubmit);
+

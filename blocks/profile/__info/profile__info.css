@@ -1,7 +1,7 @@
 .profile__info {
     position: relative;
     color: #FFFFFF;
-    margin-top: 22.25px;
+    margin-top: 18px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 400000px) {
