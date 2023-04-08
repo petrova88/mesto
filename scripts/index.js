@@ -1,12 +1,11 @@
-const popup = document.querySelector('.popup'); // +
-const editPopup = document.querySelector('.edit-button'); // +
-const popupCloseBtn = document.querySelector('.popup__close-btn'); // +
-const nameInput = document.querySelector('.popup__input_name'); // +
-const jobInput = document.querySelector('.popup__input_job'); // +
-const nameInProfile = document.querySelector('.profile__title'); // +
-const jobInProfile = document.querySelector('.profile__subtitle'); // +
-const formElement = document.querySelector('popup__input-container'); // +
-// const saveBtn = document.querySelector('.popup__submit-btn'); // -
+const popup = document.querySelector('.popup');
+const editPopup = document.querySelector('.edit-button');
+const popupCloseBtn = document.querySelector('.popup__close-btn');
+const nameInput = document.querySelector('.popup__input_name');
+const jobInput = document.querySelector('.popup__input_job');
+const nameInProfile = document.querySelector('.profile__title');
+const jobInProfile = document.querySelector('.profile__subtitle');
+const formElement = document.querySelector('popup__input-container');
 
 // открыть попап
 function openPopup() {

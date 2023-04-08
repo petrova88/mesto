@@ -8,6 +8,7 @@
     background-color: rgba(0, 0, 0, 0);
     justify-items: flex-end;
     margin-left: 266px;
+    background-repeat: no-repeat;
 }
 
 .popup__close-btn:hover {
