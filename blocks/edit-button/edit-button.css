@@ -12,8 +12,6 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-position: center;
-    width: 18px;
-    height: 18px;
 }
 
 .edit-button:hover {
