@@ -5,7 +5,7 @@ const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
 const nameInProfile = document.querySelector('.profile__title');
 const jobInProfile = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('popup__input-container');
+const formElement = document.querySelector('.popup__input-container');
 
 // открыть попап
 function openPopup() {
@@ -20,7 +20,6 @@ function closePopup() {
 } 
 
 // сохранить данные из input
-
 function handleFormSubmit(evt) {
     evt.preventDefault();
     nameInProfile.textContent = nameInput.value;
@@ -29,7 +28,6 @@ function handleFormSubmit(evt) {
 }
 
 // сохранить изменения
-
 editPopup.addEventListener('click', openPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 formElement.addEventListener('submit', handleFormSubmit);
