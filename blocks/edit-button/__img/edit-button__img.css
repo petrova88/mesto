@@ -3,7 +3,7 @@
     max-height: 18px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 40000px) {
+@media screen and (min-width: 768px) {
     .edit-button__img {
         max-width: 24px;
         max-height: 24px;

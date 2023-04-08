@@ -9,7 +9,7 @@
     margin-left: 22px;
 }
 
-@media screen and (min-width: 800px) and (max-width: 40000px) {
+@media screen and (min-width: 800px) {
     .popup__edit {
         padding-top: 34px;
         margin-left: 36px;

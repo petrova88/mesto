@@ -6,6 +6,7 @@
     margin-top: 45px;
     width: 238px;
     height: 46px;
+    font-family: "Inter", "Arial", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -19,12 +20,13 @@
     opacity: 0.8;
 }
 
-@media screen and (min-width: 800px) and (max-width: 40000px) {
+@media screen and (min-width: 800px) {
     .popup__submit-btn {
         margin-left: 36px;
         margin-right: 36px;
         width: 358px;
         font-size: 18px;
+        line-height: 22px;
         margin-top: 48px;
         margin-bottom: 37px;
         height: 50px;

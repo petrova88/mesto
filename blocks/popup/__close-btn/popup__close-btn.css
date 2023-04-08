@@ -1,5 +1,5 @@
 .popup__close-btn {
-    margin-top: 87px;
+    /* margin-top: 87px; */
     background-image: url(../../../images/close-icon.svg);
     width: 20px;
     height: 20px;
@@ -14,13 +14,12 @@
     opacity: 0.6;
 }
 
-@media screen and (min-width: 800px) and (max-width: 40000px) {
+@media screen and (min-width: 800px) {
     .popup__close-btn {
         margin-left: 440px;
         background-image: url(../../../images/close-icon-big.svg);
         width: 32px;
         height: 32px;
-        margin-top: 155px;
         margin-bottom: 8px;
     }
 }

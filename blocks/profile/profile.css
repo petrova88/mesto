@@ -21,7 +21,7 @@
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 400000px) {
+@media screen and (min-width: 1280px) {
     .profile {
         display: flex;
         margin-left: auto;

@@ -1,11 +1,12 @@
 .profile__info {
+    /* outline: 1px solid red; */
     position: relative;
     color: #FFFFFF;
     margin-top: 18px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 400000px) {
+@media screen and (min-width: 768px) {
     .profile__info {
-        margin-top: 70px;
+        margin-top: 75px;
     }
 }

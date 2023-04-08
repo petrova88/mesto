@@ -20,10 +20,10 @@
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 400000px) {
+@media screen and (min-width: 1280px) {
     .profile__subtitle {
         text-align: left;
-        margin-top: 16px;
+        margin-top: 11px;
         font-size: 18px;
         max-width: 366px;
     }
