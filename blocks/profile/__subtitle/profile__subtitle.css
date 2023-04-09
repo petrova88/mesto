@@ -17,6 +17,7 @@
         text-align: left;
         margin-top: 16px;
         max-width: 285px;
+        line-height: 22px;
     }
 }
 
@@ -26,5 +27,6 @@
         margin-top: 11px;
         font-size: 18px;
         max-width: 366px;
+        line-height: 22px;
     }
 }
