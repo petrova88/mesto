@@ -1,7 +1,7 @@
 .photos {
     margin-top: 36px;
     display: grid;
-    row-gap: 18px;
+    row-gap: 20px;
 }
 
 @media screen and (min-width: 581px) and (max-width: 909px) {

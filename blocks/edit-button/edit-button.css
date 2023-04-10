@@ -5,7 +5,7 @@
     text-decoration: none;
     border: 1px solid #FFFFFF;
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 264px;
     width: 18px;
     height: 18px;
@@ -58,8 +58,8 @@
 
 @media screen and (min-width: 1280px) {
     .edit-button {
-        left: 310px;
-        top: 9px;
+        left: 312px;
+        top: 14px;
         width: 24px;
         height: 24px;
         background-image: url(../../images/edit-button-big.svg);
