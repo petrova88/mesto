@@ -1,5 +1,5 @@
-.photo__like {
-    background-image: url(../../../images/like.svg);
+.photo__like_active {
+    background-image: url(../../../../images/black-like.svg);
     background-color: #FFFFFF;
     border: none;
     outline: none;
@@ -11,11 +11,11 @@
     padding: 0;
 }
 
-.photo__like:hover {
+/* .photo__like_active:hover {
     opacity: 0.5;
 }
 
-.photo__like:active {
+.photo__like_active:active {
     opacity: 1;
-    background-image: url(../../../images/black-like.svg);
-}
+    background-image: url(../../../images/black-like.png);
+} */

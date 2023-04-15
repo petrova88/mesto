@@ -1,0 +1,26 @@
+.popup__input_title {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin-top: 75px;
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+    margin-right: 22px;
+    margin-left: 22px;
+    height: 27px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 800px) {
+    .popup__input_title {
+        margin-top: 44px;
+        margin-left: 36px;
+        margin-right: 36px;
+        width: 358px;
+    }
+}
