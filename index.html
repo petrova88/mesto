@@ -26,69 +26,7 @@
                     </section>
 
                     <section class="photos">
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Москва" src="./images/moscow-city.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Москва сити</h2>
-                                <button type="button" class="photo__like">
-                                </button>
-                            </div>
-                        </div>
 
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Санкт-Петербург" src="./images/saint-petersburg.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Санкт-Петербург</h2>
-                                <button type="button" class="photo__like">
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Северная Осетия" src="./images/north-osetia.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Осетия</h2>
-                                <button type="button" class="photo__like">
-                                    <img alt="лайк" src="./images/like.svg"/>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Судак" src="./images/sudak.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Судак</h2>
-                                <button type="button" class="photo__like">
-                                    <img alt="лайк" src="./images/like.svg"/>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Байкал" src="./images/baikal.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Байкал</h2>
-                                <button type="button" class="photo__like">
-                                    <img alt="лайк" src="./images/like.svg"/>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="photo">
-                            <button type="button" class="photo__trash"></button>
-                            <img class="photo__image" alt="Москва" src="./images/moscow.jpg"/>
-                            <div class="photo__info">
-                                <h2 class="photo__text">Москва</h2>
-                                <button type="button" class="photo__like">
-                                    <img alt="лайк" src="./images/like.svg"/>
-                                </button>
-                            </div>
-                        </div>
                     </section>
                 </main>
                  <footer class="footer">
@@ -124,6 +62,18 @@
                     </div>
                 </div>
             </div>
+
+            <template id="photo-template">
+                <div class="photo">
+                        <button type="button" class="photo__trash"></button>
+                        <img class="photo__image" alt="" src=""/>
+                        <div class="photo__info">
+                            <h2 class="photo__text"></h2>
+                            <button type="button" class="photo__like">
+                            </button>
+                        </div>
+                </div>
+            </template>
             <script src="./scripts/index.js"></script>
         </body>
 </html>
