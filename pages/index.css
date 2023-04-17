@@ -30,9 +30,17 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 @import url(../blocks/popup-mesto/popup-mesto.css);
-@import url(../blocks/popup-mesto/popup-mesto_opened.css);
+@import url(../blocks/popup-mesto/_opened.css/popup-mesto_opened.css);
 @import url(../blocks/popup/__input/_link/popup__input_link.css);
 @import url(../blocks/popup/__input/_title/popup__input_title.css);
 @import url(../blocks/popup-mesto/__close-btn/popup-mesto__close-btn.css);
 @import url(../blocks/photo/__like/_active/photo__like_active.css);
 @import url(../blocks/photo/__trash/photo__trash.css);
+
+@import url(../blocks/popup-image/popup-image.css);
+@import url(../blocks/popup-image/_opened/popup-image_opened.css);
+@import url(../blocks/popup-image/__image/popup-image__image.css);
+@import url(../blocks/popup-image/__close-btn/popup-image__close-btn.css);
+@import url(../blocks/popup-image/__container/popup-image__container.css);
+@import url(../blocks/popup-image/__text/popup-image__text.css);
+@import url(../blocks/popup-image/__content/popup-image__content.css);

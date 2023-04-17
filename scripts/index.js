@@ -1,5 +1,4 @@
 
-
 const popup = document.querySelector('.popup');
 const editPopup = document.querySelector('.edit-button');
 const popupCloseBtn = document.querySelector('.popup__close-btn');
@@ -11,8 +10,6 @@ const formElement = document.querySelector('.popup__input-container');
 const popupMesto = document.querySelector('.popup-mesto');
 const addButton = document.querySelector('.add-button');
 const mestoCloseBtn = document.querySelector('.popup-mesto__close-btn');
-// const likes = document.querySelectorAll('.photo__like');
-
 
 // попап редактирования профиля
 function openPopup() {
@@ -52,11 +49,7 @@ formElement.addEventListener('submit', handleFormSubmit);
 addButton.addEventListener('click', openMesto);
 mestoCloseBtn.addEventListener('click', closeMesto);
 
-// поставить лайк
-// likes.forEach((item) => {
-//     item.addEventListener('click', () =>
-//     item.classList.toggle('photo__like_active'));
-// });
+
 
 const initialCards = [
   {
@@ -85,7 +78,7 @@ const initialCards = [
   }
 ];
 
-// добавить карточки
+// добавить карточки из массива
 const photoTemplate = document.getElementById('photo-template');
 const photosContainer = document.querySelector('.photos');
 
@@ -119,6 +112,48 @@ initialCards.forEach((photoData) => {
   const element = createPhotoElement(photoData);
   photosContainer.append(element);
 });
+
+// создать карточку из попапа
+const inputTitle = document.querySelector('.popup__input_title');
+const inputLink = document.querySelector('.popup__input_link');
+
+popupMesto.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const newNameLink = { name:inputTitle.value, 
+                        link:inputLink.value }
+  const elementMesto = createPhotoElement(newNameLink);
+  photosContainer.prepend(elementMesto);
+  closeMesto();
+});
+
+// открыть попап 
+
+function seeBigImage(name, link) {
+  const popupImage = document.querySelector('.popup-image');
+  const bigImageContainer = document.querySelector('.popup-image__content');
+  const bigImage = document.querySelector('.popup-image__image');
+  const bigImageText = document.querySelector('.popup-image__text');
+  const closeBigImage = document.querySelector('.popup-image__close-btn');
+  bigImage.alt = name;
+  bigImage.scr = link;
+  photoImage.addEventListener('click', function (evt) {
+    popupImage.classList.add('popup-image_opened');
+    bigImageText.textContent = name;
+    bigImage.scr = link;
+  });
+}
+
+for (let i = 0; i < initialCards.length; i++) {
+  seeBigImage(initialCards[i].name, initialCards[i].link);
+};
+
+
+
+
+
+
+
+
 
 
 
