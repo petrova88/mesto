@@ -1,0 +1,20 @@
+.popup-mesto__container {
+    border-radius: 10px;
+    max-width: 282px;
+    background-color: rgba(0, 0, 0, 0);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .popup-mesto__container {
+        max-width: 430px;
+    }
+}
