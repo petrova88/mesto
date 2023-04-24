@@ -1,52 +1,47 @@
-const popup = document.querySelector('.popup');
-const editPopup = document.querySelector('.edit-button');
-const popupCloseBtn = document.querySelector('.popup__close-btn');
+const popupEdit = document.querySelector('.popup_edit');
+const popupEditButton = document.querySelector('.edit-button');
+const popupEditCloseBtn = popupEdit.querySelector('.popup__close-btn');
 const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
 const nameInProfile = document.querySelector('.profile__title');
 const jobInProfile = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('.popup-mesto__input-container');
-const popupMesto = document.querySelector('.popup-mesto');
-const addButton = document.querySelector('.add-button');
-const mestoCloseBtn = document.querySelector('.popup-mesto__close-btn');
+const formElement = document.querySelector('.popup__input-container');
+
+const popupAdd = document.querySelector('.popup_mesto');
+const popupAddCloseBtn = popupAdd.querySelector('.popup__close-btn');
+const popupAddButton = document.querySelector('.add-button');
 
 
-// попап редактирования профиля
-function openPopup() {
-    popup.classList.add('popup_opened');
-    nameInput.value =  nameInProfile.textContent;
-    jobInput.value = jobInProfile.textContent;
+const openPopup = (popupElement) => {
+  popupElement.classList.add('popup_opened');
 };
 
-function closePopup() {
-    popup.classList.remove('popup_opened');
+const closePopup = (popupElement) => {
+  popupElement.classList.remove('popup_opened');
+};
+
+const openPopupEdit = () => {
+  nameInput.value =  nameInProfile.textContent;
+  jobInput.value = jobInProfile.textContent;
+  openPopup(popupEdit);
 };
 
 // сохранить данные из input в ред профиля
-function handleFormSubmit(evt) {
+const handleFormSubmit = (evt) => {
     evt.preventDefault();
     nameInProfile.textContent = nameInput.value;
     jobInProfile.textContent = jobInput.value;
-    closePopup();
-};
-
-// попап добавления карточки
-function openMesto() {
-    popupMesto.classList.add('popup-mesto_opened');
-};
-
-function closeMesto() {
-    popupMesto.classList.remove('popup-mesto_opened');
+    closePopup(popupEdit);
 };
 
 // попап редактирования
-editPopup.addEventListener('click', openPopup);
-popupCloseBtn.addEventListener('click', closePopup);
+popupEditButton.addEventListener('click', openPopupEdit);
+popupEditCloseBtn.addEventListener('click', () => closePopup(popupEdit));
 formElement.addEventListener('submit', handleFormSubmit);
 
 // попап добавления
-addButton.addEventListener('click', openMesto);
-mestoCloseBtn.addEventListener('click', closeMesto);
+popupAddButton.addEventListener('click', () => openPopup(popupAdd));
+popupAddCloseBtn.addEventListener('click', () => closePopup(popupAdd));
 
 const initialCards = [
   {
@@ -86,7 +81,7 @@ const createPhotoElement = (photoData) => {
   const photoTrash = photoElement.querySelector('.photo__trash');
   const likes = photoElement.querySelector('.photo__like');
   const popupPhoto = document.querySelector('.popup-image');
-  const popupPhotoCloseBtn = document.querySelector('.popup-image__close-btn');
+  const popupPhotoCloseBtn = popupPhoto.querySelector('.popup__close-btn');
 
   photoText.textContent = photoData.name;
   photoImage.src = photoData.link;
@@ -112,18 +107,13 @@ const createPhotoElement = (photoData) => {
     popupPhotoText.textContent = photoData.name;
     popupPhotoImage.alt = photoData.name;
 
-    popupPhoto.classList.add('popup-image_opened');
-  }
+    openPopup(popupPhoto);
+  };
 
 
   photoImage.addEventListener('click', seeBigPhoto);
 
-  function closePopupPhoto ()  {
-    popupPhoto.classList.remove('popup-image_opened');
-  }
-  popupPhotoCloseBtn.addEventListener('click', closePopupPhoto);
-
-
+  popupPhotoCloseBtn.addEventListener('click', () => closePopup(popupPhoto));
 
   return photoElement;
 };
@@ -137,11 +127,12 @@ initialCards.forEach((photoData) => {
 const inputTitle = document.querySelector('.popup__input_title');
 const inputLink = document.querySelector('.popup__input_link');
 
-popupMesto.addEventListener('submit', (evt) => {
+popupAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const newNameLink = { name:inputTitle.value, 
                         link:inputLink.value }
   const elementMesto = createPhotoElement(newNameLink);
   photosContainer.prepend(elementMesto);
-  closeMesto();
+  closePopup(popupAdd);
 });
+
