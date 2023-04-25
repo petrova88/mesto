@@ -1,48 +1,3 @@
-const popupEdit = document.querySelector('.popup_edit');
-const popupEditButton = document.querySelector('.edit-button');
-const popupEditCloseBtn = popupEdit.querySelector('.popup__close-btn');
-const nameInput = document.querySelector('.popup__input_name');
-const jobInput = document.querySelector('.popup__input_job');
-const nameInProfile = document.querySelector('.profile__title');
-const jobInProfile = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('.popup__input-container');
-
-const popupAdd = document.querySelector('.popup_mesto');
-const popupAddCloseBtn = popupAdd.querySelector('.popup__close-btn');
-const popupAddButton = document.querySelector('.add-button');
-
-
-const openPopup = (popupElement) => {
-  popupElement.classList.add('popup_opened');
-};
-
-const closePopup = (popupElement) => {
-  popupElement.classList.remove('popup_opened');
-};
-
-const openPopupEdit = () => {
-  nameInput.value =  nameInProfile.textContent;
-  jobInput.value = jobInProfile.textContent;
-  openPopup(popupEdit);
-};
-
-// сохранить данные из input в ред профиля
-const handleFormSubmit = (evt) => {
-    evt.preventDefault();
-    nameInProfile.textContent = nameInput.value;
-    jobInProfile.textContent = jobInput.value;
-    closePopup(popupEdit);
-};
-
-// попап редактирования
-popupEditButton.addEventListener('click', openPopupEdit);
-popupEditCloseBtn.addEventListener('click', () => closePopup(popupEdit));
-formElement.addEventListener('submit', handleFormSubmit);
-
-// попап добавления
-popupAddButton.addEventListener('click', () => openPopup(popupAdd));
-popupAddCloseBtn.addEventListener('click', () => closePopup(popupAdd));
-
 const initialCards = [
   {
     name: 'Красная площадь',
@@ -70,18 +25,53 @@ const initialCards = [
   }
 ];
 
-// добавить карточки из массива
+const popupEdit = document.querySelector('.popup_edit');
+const popupEditButton = document.querySelector('.edit-button');
+const profileCloseButton = popupEdit.querySelector('.popup__close-btn');
+const inputName = document.querySelector('.popup__input_name');
+const inputJob = document.querySelector('.popup__input_job');
+const nameInProfile = document.querySelector('.profile__title');
+const jobInProfile = document.querySelector('.profile__subtitle');
+const profileForm = document.querySelector('.popup__input-container');
+const popupAdd = document.querySelector('.popup_mesto');
+const addFormCloseButton = popupAdd.querySelector('.popup__close-btn');
+const popupAddButton = document.querySelector('.add-button');
+const popupPhoto = document.querySelector('.popup-image');
+const imageFormCloseButtom = popupPhoto.querySelector('.popup__close-btn');
+const inputTitle = document.querySelector('.popup__input_title');
+const inputLink = document.querySelector('.popup__input_link');
 const photoTemplate = document.getElementById('photo-template');
 const photosContainer = document.querySelector('.photos');
 
+const openPopup = (popupElement) => {
+  popupElement.classList.add('popup_opened');
+};
+
+const closePopup = (popupElement) => {
+  popupElement.classList.remove('popup_opened');
+};
+
+const openPopupEdit = () => {
+  inputName.value =  nameInProfile.textContent;
+  inputJob.value = jobInProfile.textContent;
+  openPopup(popupEdit);
+};
+
+// сохранить данные из input в ред профиля
+const handleProfileFormSubmit = (evt) => {
+    evt.preventDefault();
+    nameInProfile.textContent = inputName.value;
+    jobInProfile.textContent = inputJob.value;
+    closePopup(popupEdit);
+};
+
+// добавить карточки из массива
 const createPhotoElement = (photoData) => {
   const photoElement = photoTemplate.content.querySelector('.photo').cloneNode(true);
   const photoImage = photoElement.querySelector('.photo__image');
   const photoText = photoElement.querySelector('.photo__text');
   const photoTrash = photoElement.querySelector('.photo__trash');
   const likes = photoElement.querySelector('.photo__like');
-  const popupPhoto = document.querySelector('.popup-image');
-  const popupPhotoCloseBtn = popupPhoto.querySelector('.popup__close-btn');
 
   photoText.textContent = photoData.name;
   photoImage.src = photoData.link;
@@ -95,9 +85,6 @@ const createPhotoElement = (photoData) => {
     likes.classList.toggle('photo__like_active');
   };
 
-  photoTrash.addEventListener('click', handleDelete);
-  likes.addEventListener('click', handleLike);
-
   // увеличить изображение
   const seeBigPhoto = () => {
     const popupPhotoImage = document.querySelector('.popup-image__image');
@@ -110,11 +97,9 @@ const createPhotoElement = (photoData) => {
     openPopup(popupPhoto);
   };
 
-
   photoImage.addEventListener('click', seeBigPhoto);
-
-  popupPhotoCloseBtn.addEventListener('click', () => closePopup(popupPhoto));
-
+  photoTrash.addEventListener('click', handleDelete);
+  likes.addEventListener('click', handleLike);
   return photoElement;
 };
 
@@ -123,16 +108,25 @@ initialCards.forEach((photoData) => {
   photosContainer.append(element);
 });
 
-// создать карточку из попапа
-const inputTitle = document.querySelector('.popup__input_title');
-const inputLink = document.querySelector('.popup__input_link');
+// очищение инпутов в попапе добавления места
+const openPopupAddForm = () => {
+  inputTitle.value = '';
+  inputLink.value = '';
+  openPopup(popupAdd);
+};
 
 popupAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const newNameLink = { name:inputTitle.value, 
-                        link:inputLink.value }
+  const newNameLink = { name:inputTitle.value,
+                        link:inputLink.value}
   const elementMesto = createPhotoElement(newNameLink);
   photosContainer.prepend(elementMesto);
   closePopup(popupAdd);
 });
 
+popupEditButton.addEventListener('click', openPopupEdit);
+profileCloseButton.addEventListener('click', () => closePopup(popupEdit));
+profileForm.addEventListener('submit', handleProfileFormSubmit);
+imageFormCloseButtom.addEventListener('click', () => closePopup(popupPhoto));
+popupAddButton.addEventListener('click', openPopupAddForm);
+addFormCloseButton.addEventListener('click', () => closePopup(popupAdd));
