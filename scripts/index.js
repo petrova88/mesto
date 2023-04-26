@@ -42,6 +42,8 @@ const inputTitle = document.querySelector('.popup__input_title');
 const inputLink = document.querySelector('.popup__input_link');
 const photoTemplate = document.getElementById('photo-template');
 const photosContainer = document.querySelector('.photos');
+const popupPhotoImage = document.querySelector('.popup-image__image');
+const popupPhotoText = document.querySelector('.popup-image__text');
 
 const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
@@ -87,9 +89,6 @@ const createPhotoElement = (photoData) => {
 
   // увеличить изображение
   const seeBigPhoto = () => {
-    const popupPhotoImage = document.querySelector('.popup-image__image');
-    const popupPhotoText = document.querySelector('.popup-image__text');
-
     popupPhotoImage.src = photoData.link;
     popupPhotoText.textContent = photoData.name;
     popupPhotoImage.alt = photoData.name;
@@ -108,12 +107,6 @@ initialCards.forEach((photoData) => {
   photosContainer.append(element);
 });
 
-// очищение инпутов в попапе добавления места
-const openPopupAddForm = () => {
-  inputTitle.value = '';
-  inputLink.value = '';
-  openPopup(popupAdd);
-};
 
 popupAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
@@ -121,6 +114,7 @@ popupAdd.addEventListener('submit', (evt) => {
                         link:inputLink.value}
   const elementMesto = createPhotoElement(newNameLink);
   photosContainer.prepend(elementMesto);
+  evt.target.reset();
   closePopup(popupAdd);
 });
 
@@ -128,5 +122,5 @@ popupEditButton.addEventListener('click', openPopupEdit);
 profileCloseButton.addEventListener('click', () => closePopup(popupEdit));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 imageFormCloseButtom.addEventListener('click', () => closePopup(popupPhoto));
-popupAddButton.addEventListener('click', openPopupAddForm);
+popupAddButton.addEventListener('click', () => openPopup(popupAdd));
 addFormCloseButton.addEventListener('click', () => closePopup(popupAdd));

@@ -54,7 +54,7 @@
                     <button type="button" class="popup__close-btn"></button>
                     <div class="popup__content">
                         <h3 class="popup__edit">Новое место</h3>
-                        <form class="popup__input-container" name="popup-edit">
+                        <form class="popup__input-container" name="popup-edit" onsubmit="return onFormSubmit()">
                             <input class="popup__input popup__input_title" name="title" type="text" placeholder="Название" required>
                             <input class="popup__input popup__input_link" name="link" type="text" placeholder="Ссылка на картинку" required>
                             <input class="popup__submit-btn" type="submit" value="Создать">
