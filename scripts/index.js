@@ -47,10 +47,44 @@ const popupPhotoText = document.querySelector('.popup-image__text');
 
 const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  document.addEventListener('click', closePopupOverlay);
 };
+
+const closePopupOverlay = (popupEl, evt) => {
+  if (evt && evt.target) {
+    const isOverlay = evt.target.classList.contains('popup');
+    const isCloseButton = evt.target.classList.contains('popup__close-btn');
+
+    if (isOverlay || isCloseButton) {
+      closePopup(popupEl);
+    }
+  }
+};
+
+document.addEventListener('click', function(evt) {
+  closePopupOverlay(popupEdit, evt);
+});
+
+document.addEventListener('click', function(evt) {
+  closePopupOverlay(popupAdd, evt);
+});
+
+document.addEventListener('click', function(evt) {
+  closePopupOverlay(popupPhoto, evt);
+});
+
+// почему я не могу закрыть попап при нажатии строго выше или ниже него?
+// ведь попап охватывает всю область, а не только по краям :(
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove('popup_opened');
+};
+
+const closePopupEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
 };
 
 const openPopupEdit = () => {
@@ -117,6 +151,7 @@ popupAdd.addEventListener('submit', (evt) => {
   evt.target.reset();
   closePopup(popupAdd);
 });
+
 
 popupEditButton.addEventListener('click', openPopupEdit);
 profileCloseButton.addEventListener('click', () => closePopup(popupEdit));

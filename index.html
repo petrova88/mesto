@@ -40,10 +40,12 @@
                     <button type="button" class="popup__close-btn"></button>
                     <div class="popup__content">
                         <h3 class="popup__edit">Редактировать профиль</h3>
-                        <form class="popup__input-container" name="popup-edit">
-                            <input class="popup__input popup__input_name" name="name" type="text" placeholder="Имя" required>
-                            <input class="popup__input popup__input_job" name="job" type="text" placeholder="О себе">
-                            <input class="popup__submit-btn" type="submit" value="Сохранить">
+                        <form class="popup__input-container popup__input-container_name" name="popup-edit" novalidate>
+                            <input class="popup__input popup__input_name" name="name" type="text" minlength="2" maxlength="40" placeholder="Имя" required>
+                            <span class="popup__message-invalid popup__message_name"></span>
+                            <input class="popup__input popup__input_job" name="job" type="text" minlength="2" maxlength="200" placeholder="О себе" required>
+                            <span class="popup__message-invalid popup__message_job"></span>
+                            <button class="popup__submit-btn popup__submit-btn_edit popup__submit_invalid" type="submit">Сохранить</button>
                         </form>
                     </div>
                 </div>
@@ -54,10 +56,12 @@
                     <button type="button" class="popup__close-btn"></button>
                     <div class="popup__content">
                         <h3 class="popup__edit">Новое место</h3>
-                        <form class="popup__input-container" name="popup-edit">
+                        <form class="popup__input-container popup__input-container_mesto" name="popup-edit" novalidate>
                             <input class="popup__input popup__input_title" name="title" type="text" placeholder="Название" required>
+                            <span class="popup__message-invalid popup__message_title"></span>
                             <input class="popup__input popup__input_link" name="link" type="text" placeholder="Ссылка на картинку" required>
-                            <input class="popup__submit-btn" type="submit" value="Создать">
+                            <span class="popup__message-invalid popup__message_link"></span>
+                            <button class="popup__submit-btn popup__submit-btn_mesto popup__submit_invalid" type="submit">Создать</button>
                         </form>
                     </div>
                 </div>
@@ -85,5 +89,6 @@
                 </div>
             </template>
             <script src="./scripts/index.js"></script>
+            <script src="./scripts/validate.js"></script>
         </body>
 </html>
