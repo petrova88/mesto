@@ -74,9 +74,6 @@ document.addEventListener('click', function(evt) {
   closePopupOverlay(popupPhoto, evt);
 });
 
-// почему я не могу закрыть попап при нажатии строго выше или ниже него?
-// ведь попап охватывает всю область, а не только по краям :(
-
 const closePopup = (popupElement) => {
   popupElement.classList.remove('popup_opened');
 };
