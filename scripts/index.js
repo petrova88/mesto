@@ -44,8 +44,7 @@ const photosContainer = document.querySelector(".photos");
 const popupPhotoImage = document.querySelector(".popup-image__image");
 const popupPhotoText = document.querySelector(".popup-image__text");
 const popupList = Array.from(document.querySelectorAll(".popup"));
-const popupImageCloseBtn = document.querySelector('.popup-image__close-btn');
-
+const popupImageCloseBtn = document.querySelector(".popup-image__close-btn");
 
 const openPopup = (popupOpened) => {
   popupOpened.classList.add("popup_opened");
@@ -141,6 +140,6 @@ popupAdd.addEventListener("submit", (evt) => {
 
 popupEditButton.addEventListener("click", openPopupEdit);
 profileCloseButton.addEventListener("click", () => closePopup(popup));
-popupImageCloseBtn.addEventListener('click', () => closePopup(popupPhoto));
+popupImageCloseBtn.addEventListener("click", () => closePopup(popupPhoto));
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 popupAddButton.addEventListener("click", () => openPopup(popupAdd));
