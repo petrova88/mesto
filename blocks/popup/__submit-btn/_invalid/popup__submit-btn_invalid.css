@@ -1,4 +1,4 @@
-.popup__submit-btn_invalid {
+.popup__submit-btn_invalid:disabled {
     color: #000000;
     background-color: #fff;
     opacity: 0.2;
