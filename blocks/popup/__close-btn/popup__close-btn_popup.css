@@ -1,4 +1,4 @@
-.popup__close-btn {
+.popup__close-btn_popup {
     /* margin-top: 87px; */
     background-image: url(../../../images/close-icon.svg);
     width: 20px;
@@ -11,12 +11,12 @@
     background-repeat: no-repeat;
 }
 
-.popup__close-btn:hover {
+.popup__close-btn_popup:hover {
     opacity: 0.6;
 }
 
 @media screen and (min-width: 800px) {
-    .popup__close-btn {
+    .popup__close-btn_popup {
         margin-left: 485px;
         background-image: url(../../../images/close-icon-big.svg);
         width: 32px;

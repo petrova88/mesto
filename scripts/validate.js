@@ -1,7 +1,3 @@
-// намекните, пожалуйста, как исправить состояние кнопки после создания новой карточки
-// попробовала все. не знаю уже в каком направлении двигаться
-// остальные недочеты исправлены
-
 const showInputError = (selector, formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   errorElement.classList.add(selector.errorClass);
@@ -25,7 +21,7 @@ const checkInputValidity = (selector, formElement, inputElement) => {
 };
 
 const changeButtonState = (selector, inputList, buttonElement) => {
-  if (inputList.some((inputElement) => !inputElement.validity.valid)) {
+  if (inputList.some(inputElement => !inputElement.validity.valid)) {
     buttonElement.classList.add(selector.inactiveButtonClass);
     buttonElement.disabled = true;
   } else {
@@ -41,6 +37,11 @@ const setEventListeners = (selector, formElement) => {
   const buttonElement = formElement.querySelector(
     selector.submitButtonSelector
   );
+
+  formElement.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    changeButtonState(selector, inputList, buttonElement);
+  });
 
   changeButtonState(selector, inputList, buttonElement);
   inputList.forEach((inputElement) => {
