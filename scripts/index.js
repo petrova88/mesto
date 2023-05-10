@@ -85,7 +85,7 @@ const closePopupOverlay = (popupElement, evt) => {
   }
 };
 
-document.querySelectorAll(".popup").forEach((popup) => {
+popup.forEach((popup) => {
   popup.addEventListener("click", function (evt) {
     closePopupOverlay(popup, evt);
   });
