@@ -85,9 +85,9 @@ const closePopupOverlay = (popupElement, evt) => {
   }
 };
 
-document.querySelectorAll('.popup').forEach( popup => {
-  popup.addEventListener('click', function(evt) { 
-      closePopupOverlay(popup, evt); 
+document.querySelectorAll(".popup").forEach((popup) => {
+  popup.addEventListener("click", function (evt) {
+    closePopupOverlay(popup, evt);
   });
 });
 
@@ -139,7 +139,7 @@ popupAdd.addEventListener("submit", (evt) => {
   const elementMesto = createPhotoElement(newNameLink);
   photosContainer.prepend(elementMesto);
   evt.target.reset();
-  evt.submitter.classList.add('popup__submit-btn_invalid')
+  evt.submitter.classList.add("popup__submit-btn_invalid");
   evt.submitter.disabled = true;
 
   closePopup(popupAdd);
@@ -149,4 +149,3 @@ popupEditButton.addEventListener("click", openPopupEdit);
 profileCloseButton.addEventListener("click", () => closePopup(popup));
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 popupAddButton.addEventListener("click", () => openPopup(popupAdd));
-

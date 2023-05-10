@@ -21,7 +21,7 @@ const checkInputValidity = (selector, formElement, inputElement) => {
 };
 
 const changeButtonState = (selector, inputList, buttonElement) => {
-  if (inputList.some(inputElement => !inputElement.validity.valid)) {
+  if (inputList.some((inputElement) => !inputElement.validity.valid)) {
     buttonElement.classList.add(selector.inactiveButtonClass);
     buttonElement.disabled = true;
   } else {
@@ -38,7 +38,7 @@ const setEventListeners = (selector, formElement) => {
     selector.submitButtonSelector
   );
 
-  formElement.addEventListener('submit', (evt) => {
+  formElement.addEventListener("submit", (evt) => {
     evt.preventDefault();
     changeButtonState(selector, inputList, buttonElement);
   });
