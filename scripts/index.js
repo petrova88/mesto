@@ -45,7 +45,7 @@ const popupPhotoImage = document.querySelector(".popup-image__image");
 const popupPhotoText = document.querySelector(".popup-image__text");
 const popupList = Array.from(document.querySelectorAll(".popup"));
 const popupImageCloseBtn = document.querySelector(".popup-image__close-btn");
-const popup = document.querySelectorAll(".popup");
+const popups = document.querySelectorAll(".popup");
 
 const openPopup = (popupOpened) => {
   popupOpened.classList.add("popup_opened");
@@ -85,9 +85,9 @@ const closePopupOverlay = (popupElement, evt) => {
   }
 };
 
-popup.forEach((popup) => {
-  popup.addEventListener("click", function (evt) {
-    closePopupOverlay(popup, evt);
+popups.forEach((popups) => {
+  popups.addEventListener("click", function (evt) {
+    closePopupOverlay(popups, evt);
   });
 });
 
