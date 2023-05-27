@@ -1,31 +1,7 @@
-const initialCards = [
-  {
-    name: "Красная площадь",
-    link: "https://images.unsplash.com/photo-1520106212299-d99c443e4568?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    name: "Санкт-Петербург",
-    link: "https://images.unsplash.com/photo-1660224319946-d83b01a57321?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
-  },
-  {
-    name: "Байкал",
-    link: "https://images.unsplash.com/photo-1552857406-14af62dbf053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-  },
-  {
-    name: "Москва сити",
-    link: "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    name: "Судак",
-    link: "https://images.unsplash.com/photo-1565342403875-07a8dc5ed13c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-  },
-  {
-    name: "Сочи",
-    link: "https://images.unsplash.com/photo-1561885121-45d5a4b8b82b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-  },
-];
+import { initialCards } from "./constans.js";
+import { Card } from "./card.js";
+import { FormValidator } from "./FormValidator.js";
 
-// const popup = document.querySelectorAll(".popup");
 const popupEdit = document.querySelector(".popup_edit");
 const popupEditButton = document.querySelector(".edit-button");
 const profileCloseButton = popupEdit.querySelector(".popup__close-btn");
@@ -46,6 +22,30 @@ const popupPhotoText = document.querySelector(".popup-image__text");
 const popupList = Array.from(document.querySelectorAll(".popup"));
 const popupImageCloseBtn = document.querySelector(".popup-image__close-btn");
 const popups = document.querySelectorAll(".popup");
+const formEditProfile = document.forms["edit-form"];
+const formAddCard = document.forms["add-form"];
+
+const selector = {
+  formSelector: ".popup__input-container",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__submit-btn",
+  inactiveButtonClass: "popup__submit-btn_invalid",
+  inputErrorClass: "popup__input_invalid",
+  errorClass: "popup__input-error",
+};
+
+const createNewCard = (element) => {
+  const card = new Card(element, seeBigPhoto);
+  const cardElement = card.createCard();
+  return cardElement;
+};
+
+const seeBigPhoto = (photoData) => {
+  photoElement.src = photoData.link;
+  photoElement.alt = photoData.name;
+  photoTitle.textContent = photoData.name;
+  openPopup(popupPhoto);
+};
 
 const openPopup = (popupOpened) => {
   popupOpened.classList.add("popup_opened");
@@ -60,13 +60,25 @@ const closePopup = (popupOpened) => {
 const openPopupEdit = () => {
   inputName.value = nameInProfile.textContent;
   inputJob.value = jobInProfile.textContent;
+  formProfileValidator.resetError();
   openPopup(popupEdit);
+};
+
+const openAddForm = () => {
+  formAddCard.reset();
+  formAddValidator.resetError();
+  openPopup(popupAdd);
 };
 
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
-  nameInProfile.textContent = inputName.value;
-  jobInProfile.textContent = inputJob.value;
+  const cardAdd = {
+    name: inputCaptionAddForm.value,
+    link: inputLinkAddForm.value,
+  };
+  cardsContainer.prepend(createNewCard(cardAdd));
+  // nameInProfile.textContent = inputName.value;
+  // jobInProfile.textContent = inputJob.value;
   closePopup(popupEdit);
 };
 
@@ -91,59 +103,51 @@ popups.forEach((popups) => {
   });
 });
 
-const createPhotoElement = (photoData) => {
-  const photoElement = photoTemplate.content
-    .querySelector(".photo")
-    .cloneNode(true);
-  const photoImage = photoElement.querySelector(".photo__image");
-  const photoText = photoElement.querySelector(".photo__text");
-  const photoTrash = photoElement.querySelector(".photo__trash");
-  const likes = photoElement.querySelector(".photo__like");
+// const createPhotoElement = (photoData) => {
+//   const photoElement = photoTemplate.content
+//     .querySelector(".photo")
+//     .cloneNode(true);
+//   const photoImage = photoElement.querySelector(".photo__image");
+//   const photoText = photoElement.querySelector(".photo__text");
+//   const photoTrash = photoElement.querySelector(".photo__trash");
+//   const likes = photoElement.querySelector(".photo__like");
 
-  photoText.textContent = photoData.name;
-  photoImage.src = photoData.link;
-  photoImage.alt = photoData.name;
+//   photoText.textContent = photoData.name;
+//   photoImage.src = photoData.link;
+//   photoImage.alt = photoData.name;
 
-  const handleDelete = () => {
-    photoElement.remove();
-  };
+//   const handleDelete = () => {
+//     photoElement.remove();
+//   };
 
-  const handleLike = () => {
-    likes.classList.toggle("photo__like_active");
-  };
+//   const handleLike = () => {
+//     likes.classList.toggle("photo__like_active");
+//   };
 
-  // увеличить изображение
-  const seeBigPhoto = () => {
-    popupPhotoImage.src = photoData.link;
-    popupPhotoText.textContent = photoData.name;
-    popupPhotoImage.alt = photoData.name;
+//   // увеличить изображение
+//   const seeBigPhoto = () => {
+//     popupPhotoImage.src = photoData.link;
+//     popupPhotoText.textContent = photoData.name;
+//     popupPhotoImage.alt = photoData.name;
 
-    openPopup(popupPhoto);
-  };
+//     openPopup(popupPhoto);
+//   };
 
-  photoImage.addEventListener("click", seeBigPhoto);
-  photoTrash.addEventListener("click", handleDelete);
-  likes.addEventListener("click", handleLike);
-  return photoElement;
-};
+//   photoImage.addEventListener("click", seeBigPhoto);
+//   photoTrash.addEventListener("click", handleDelete);
+//   likes.addEventListener("click", handleLike);
+//   return photoElement;
+// };
 
 initialCards.forEach((photoData) => {
-  const element = createPhotoElement(photoData);
-  photosContainer.append(element);
+  photosContainer.append(createNewCard(element));
 });
 
-popupAdd.addEventListener("submit", (evt) => {
-  evt.preventDefault();
+const formProfileValidator = new FormValidator(selector, formEditProfile);
+formProfileValidator.enableValidation();
 
-  const newNameLink = { name: inputTitle.value, link: inputLink.value };
-  const elementMesto = createPhotoElement(newNameLink);
-  photosContainer.prepend(elementMesto);
-  evt.target.reset();
-  evt.submitter.classList.add("popup__submit-btn_invalid");
-  evt.submitter.disabled = true;
-
-  closePopup(popupAdd);
-});
+const formAddValidator = new FormValidator(selector, formAddCard);
+formAddValidator.enableValidation();
 
 popupEditButton.addEventListener("click", openPopupEdit);
 profileCloseButton.addEventListener("click", () => closePopup(popup));
