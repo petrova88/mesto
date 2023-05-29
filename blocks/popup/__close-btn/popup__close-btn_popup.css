@@ -9,6 +9,7 @@
     justify-items: flex-end;
     margin-left: 266px;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .popup__close-btn_popup:hover {

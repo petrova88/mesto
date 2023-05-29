@@ -12,6 +12,7 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
 }
 
 .add-button:hover {

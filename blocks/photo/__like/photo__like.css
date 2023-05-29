@@ -9,6 +9,7 @@
     margin-right: 21px;
     margin-left: auto;
     padding: 0;
+    cursor: pointer;
 }
 
 .photo__like:hover {
