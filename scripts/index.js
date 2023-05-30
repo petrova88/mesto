@@ -2,9 +2,10 @@ import { initialCards } from './constans.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
-// Павел, спасибо за ваши комментарии
-// после отправки на итерацию у меня сломался код, хотя ранее все работо, а сейчас не понимаю где ошибка и не могу починить
-// подскажите, пожалуйста :(
+// Павел, спасибо еще раз, что подробно все описали
+// я нашла еще несколько ошибок и исправила, у меня началит появляться посты
+// но у меня не показываются изображения, не открываются попапы и не нажимаются лайки
+// возможно что-то еще, но я не могу проверить функционал. уже ломаю себе голову, посмотрите, пожалуйста 
 
 const popupEdit = document.querySelector(".popup_edit");
 const popupEditButton = document.querySelector(".edit-button");
@@ -38,9 +39,9 @@ const validationConfig = {
   errorClass: "popup__input-error",
 };
 
-const createNewCard = (element) => {
-  const card = new Card (element, seeBigPhoto);
-  return card.createCard();
+const createNewCard = (element) => { 
+  const card = new Card (element, '.photo-template', seeBigPhoto); 
+  return card.createCard(); 
 }
 
 const seeBigPhoto = (photoData) => {
@@ -62,14 +63,14 @@ const closePopup = (popupOpened) => {
 
 const openPopupEdit = () => {
   inputName.value = nameInProfile.textContent;
-  inputJob.value = jobInProfile.textContent;
-  formProfileValidator.resetError();
+  jobInProfile.value = jobInProfile.textContent;
+  formProfileValidator.resetValidationState();
   openPopup(popupEdit);
 };
 
 const openAddForm = () => {
   formAddCard.reset();
-  formAddValidator.resetError();
+  formAddValidator.resetValidationState();
   openPopup(popupAdd);
 }
 
@@ -100,21 +101,21 @@ const closePopupOverlay = (popupElement, evt) => {
 
 popups.forEach((popup) => {
   popup.addEventListener("click", function (evt) {
-    closePopupOverlay(popups, evt);
+    closePopupOverlay(popup, evt);
   });
 });
 
 initialCards.forEach((photoData) => {
-  photosContainer.append(createNewCard(element));
-}); // не понимаю почему ошибка в консоли
+  photosContainer.append(createNewCard(photoData));
+});
 
-const formProfileValidator = new FormValidator(selector, formEditProfile);
+const formProfileValidator = new FormValidator(validationConfig, formEditProfile);
 formProfileValidator.enableValidation();
 
-const formAddValidator = new FormValidator(selector, formAddCard);
+const formAddValidator = new FormValidator(validationConfig, formAddCard);
 formAddValidator.enableValidation();
 
 popupEditButton.addEventListener("click", openPopupEdit);
 profileCloseButton.addEventListener("click", () => closePopup(popup));
 profileForm.addEventListener("submit", handleProfileFormSubmit);
-popupAddButton.addEventListener("click", () => openPopup(popupAdd));
+popupAddButton.addEventListener("click", openAddForm);

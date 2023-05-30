@@ -1,15 +1,14 @@
 class Card {
-    constructor(photoData, seeBigPhoto) {
-      this._photoData = photoData;
+    constructor(photoData, templateSelector, seeBigPhoto) {
       this._name = photoData.name;
       this._seeBigPhoto = seeBigPhoto;
   
-      this._cardElement = document // переименовала
-        .querySelector(".photo-template")
+      this._cardElement = document 
+        .querySelector(templateSelector)
         .content.querySelector(".photo")
         .cloneNode(true);
     }
-  
+
     _handleLike() {
       this._photoLikeBtn.classList.toggle("photo__like_active");
     }
@@ -27,19 +26,19 @@ class Card {
       this._photoDeleteBtn.addEventListener("click", this._handleDelete);
       this._photoImage.addEventListener("click", this._openPhoto);
     };
-  
-    createCard() {
+
+    createCard = () => {
       this._photoImage = this._cardElement.querySelector(".photo__image");
       this._photoText = this._cardElement.querySelector(".photo__text");
       this._photoDeleteBtn = this._cardElement.querySelector(".photo__trash");
       this._photoLikeBtn = this._cardElement.querySelector(".photo__like");
   
-      this._cardImage.src = this._link;
-      this._cardImage.alt = this._name;
-      this._cardTitle.textContent = this._name;
+      this._photoImage.src = this._link;
+      this._photoImage.alt = this._name;
+      this._photoText.textContent = this._name;
       this._setEventListener();
       return this._cardElement;
     }
   }
   
-  export { Card };
+export { Card };

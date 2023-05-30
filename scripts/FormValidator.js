@@ -1,13 +1,12 @@
 class FormValidator {
-  constructor(selector, form) {
+  constructor(validationConfig, form) {
     this._form = form;
-    this._selector = selector;
-    this._formSelector = form.formSelector;
-    this._inputSelector = form.inputSelector;
-    this._submitButtonSelector = form.submitButtonSelector;
-    this._inactiveButtonClass = form.inactiveButtonClass;
-    this._inputErrorClass = form.inputErrorClass;
-    this._errorClass = form.errorClass;
+    this._formSelector = validationConfig.formSelector;
+    this._inputSelector = validationConfig.inputSelector;
+    this._submitButtonSelector = validationConfig.submitButtonSelector;
+    this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+    this._inputErrorClass = validationConfig.inputErrorClass;
+    this._errorClass = validationConfig.errorClass;
     this._inputList = Array.from(
       this._form.querySelectorAll(this._inputSelector)
     );
@@ -81,12 +80,10 @@ class FormValidator {
   };
   
   resetValidationState = () => {
-    this._inputList.forEach((input) => {
-      this._hideInputError(input);
-      if (input.validity.valid) {
-        this._changeButtonState();
-      }
+    this._inputList.forEach((input) => { 
+        this._hideInputError(input); 
     });
+    this._changeButtonState();
   };
 }
 
