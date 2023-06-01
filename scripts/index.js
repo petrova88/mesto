@@ -1,11 +1,11 @@
-import { initialCards } from './constans.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { initialCards } from "./constans.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
-// Павел, спасибо еще раз, что подробно все описали
-// я нашла еще несколько ошибок и исправила, у меня началит появляться посты
-// но у меня не показываются изображения, не открываются попапы и не нажимаются лайки
-// возможно что-то еще, но я не могу проверить функционал. уже ломаю себе голову, посмотрите, пожалуйста 
+// Павел, не отчисляйте меня пожалуйста :(((((((((((((((((((((
+// я все ваши комментарии выполнила. нашла еще ошибки
+// у меня стали открываться попапы и ошибки из консоли ушли
+// НО сабмиты не меняют цвет и не сохраняют данные. уже не знаю что делать дальше. перепроверила тупо все. помогите, пожалуйста, найти ошибку
 
 const popupEdit = document.querySelector(".popup_edit");
 const popupEditButton = document.querySelector(".edit-button");
@@ -25,10 +25,10 @@ const photosContainer = document.querySelector(".photos");
 const popupList = Array.from(document.querySelectorAll(".popup"));
 const popupImageCloseBtn = document.querySelector(".popup-image__close-btn");
 const popups = document.querySelectorAll(".popup");
-const formEditProfile = document.forms['edit-form'];
-const formAddCard = document.forms['add-form'];
-const photoElement = document.querySelector('.popup-image__image');
-const photoTitle = document.querySelector('.popup-image__text');
+const formEditProfile = document.forms["edit-form"];
+const formAddCard = document.forms["add-form"];
+const photoElement = document.querySelector(".popup-image__image");
+const photoTitle = document.querySelector(".popup-image__text");
 
 const validationConfig = {
   formSelector: ".popup__input-container",
@@ -39,17 +39,17 @@ const validationConfig = {
   errorClass: "popup__input-error",
 };
 
-const createNewCard = (element) => { 
-  const card = new Card (element, '.photo-template', seeBigPhoto); 
-  return card.createCard(); 
-}
+const createNewCard = (element) => {
+  const card = new Card(element, ".photo-template", seeBigPhoto);
+  return card.createCard();
+};
 
 const seeBigPhoto = (photoData) => {
   photoElement.src = photoData.link;
   photoElement.alt = photoData.name;
   photoTitle.textContent = photoData.name;
   openPopup(popupPhoto);
-}
+};
 
 const openPopup = (popupOpened) => {
   popupOpened.classList.add("popup_opened");
@@ -63,7 +63,7 @@ const closePopup = (popupOpened) => {
 
 const openPopupEdit = () => {
   inputName.value = nameInProfile.textContent;
-  jobInProfile.value = jobInProfile.textContent;
+  inputJob.value = jobInProfile.textContent;
   formProfileValidator.resetValidationState();
   openPopup(popupEdit);
 };
@@ -72,13 +72,13 @@ const openAddForm = () => {
   formAddCard.reset();
   formAddValidator.resetValidationState();
   openPopup(popupAdd);
-}
+};
 
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   const cardAdd = {
     name: inputCaptionAddForm.value,
-    link: inputLinkAddForm.value
+    link: inputLinkAddForm.value,
   };
   cardsContainer.prepend(createNewCard(cardAdd));
   closePopup(popupEdit);
@@ -109,13 +109,17 @@ initialCards.forEach((photoData) => {
   photosContainer.append(createNewCard(photoData));
 });
 
-const formProfileValidator = new FormValidator(validationConfig, formEditProfile);
+const formProfileValidator = new FormValidator(
+  validationConfig,
+  formEditProfile
+);
 formProfileValidator.enableValidation();
 
 const formAddValidator = new FormValidator(validationConfig, formAddCard);
 formAddValidator.enableValidation();
 
 popupEditButton.addEventListener("click", openPopupEdit);
-profileCloseButton.addEventListener("click", () => closePopup(popup));
-profileForm.addEventListener("submit", handleProfileFormSubmit);
+profileCloseButton.addEventListener("click", () => closePopup(popupEdit));
 popupAddButton.addEventListener("click", openAddForm);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
+formAddCard.addEventListener("submit", handleProfileFormSubmit);
