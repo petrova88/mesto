@@ -22,13 +22,13 @@ const inputTitle = document.querySelector(".popup__input_title");
 const inputLink = document.querySelector(".popup__input_link");
 const photoTemplate = document.querySelector(".photo-template");
 const photosContainer = document.querySelector(".photos");
-const popupPhotoImage = document.querySelector(".popup-image__image");
-const popupPhotoText = document.querySelector(".popup-image__text");
 const popupList = Array.from(document.querySelectorAll(".popup"));
 const popupImageCloseBtn = document.querySelector(".popup-image__close-btn");
 const popups = document.querySelectorAll(".popup");
 const formEditProfile = document.forms['edit-form'];
 const formAddCard = document.forms['add-form'];
+const photoElement = document.querySelector('.popup-image__image');
+const photoTitle = document.querySelector('.popup-image__text');
 
 const validationConfig = {
   formSelector: ".popup__input-container",

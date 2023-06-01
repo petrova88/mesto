@@ -1,6 +1,6 @@
 class Card {
     constructor(photoData, templateSelector, seeBigPhoto) {
-      this._name = photoData.name;
+      this._photoData = photoData;
       this._seeBigPhoto = seeBigPhoto;
   
       this._cardElement = document 
@@ -22,9 +22,9 @@ class Card {
     }
   
     _setEventListener = () => {
-      this._photoLikeBtn.addEventListener("click", this._handleLike);
-      this._photoDeleteBtn.addEventListener("click", this._handleDelete);
-      this._photoImage.addEventListener("click", this._openPhoto);
+      this._photoLikeBtn.addEventListener("click", this._handleLike.bind(this));
+      this._photoDeleteBtn.addEventListener("click", this._handleDelete.bind(this)); 
+      this._photoImage.addEventListener("click", this._openPhoto.bind(this));
     };
 
     createCard = () => {
@@ -33,9 +33,9 @@ class Card {
       this._photoDeleteBtn = this._cardElement.querySelector(".photo__trash");
       this._photoLikeBtn = this._cardElement.querySelector(".photo__like");
   
-      this._photoImage.src = this._link;
-      this._photoImage.alt = this._name;
-      this._photoText.textContent = this._name;
+      this._photoImage.src = this._photoData.link; 
+      this._photoImage.alt = this._photoData.name; 
+      this._photoText.textContent = this._photoData.name;
       this._setEventListener();
       return this._cardElement;
     }
