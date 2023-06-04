@@ -2,11 +2,6 @@ import { initialCards } from "./constans.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
-// Павел, не отчисляйте меня пожалуйста :(((((((((((((((((((((
-// я все ваши комментарии выполнила. нашла еще ошибки
-// у меня стали открываться попапы и ошибки из консоли ушли
-// НО сабмиты не меняют цвет и не сохраняют данные. уже не знаю что делать дальше. перепроверила тупо все. помогите, пожалуйста, найти ошибку
-
 const popupEdit = document.querySelector(".popup_edit");
 const popupEditButton = document.querySelector(".edit-button");
 const profileCloseButton = popupEdit.querySelector(".popup__close-btn");
@@ -74,13 +69,19 @@ const openAddForm = () => {
   openPopup(popupAdd);
 };
 
-const handleProfileFormSubmit = (evt) => {
+const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
   const cardAdd = {
-    name: inputCaptionAddForm.value,
-    link: inputLinkAddForm.value,
+    name: inputTitle.value,
+    link: inputLink.value,
   };
-  cardsContainer.prepend(createNewCard(cardAdd));
+  photosContainer.prepend(createNewCard(cardAdd));
+  closePopup(popupAdd);
+};
+
+const handleProfileFormSubmit = (evt) => {
+  nameInProfile.textContent = inputName.value;
+  jobInProfile.textContent = inputJob.value;
   closePopup(popupEdit);
 };
 
@@ -122,4 +123,4 @@ popupEditButton.addEventListener("click", openPopupEdit);
 profileCloseButton.addEventListener("click", () => closePopup(popupEdit));
 popupAddButton.addEventListener("click", openAddForm);
 formEditProfile.addEventListener("submit", handleProfileFormSubmit);
-formAddCard.addEventListener("submit", handleProfileFormSubmit);
+formAddCard.addEventListener("submit", handleAddFormSubmit);

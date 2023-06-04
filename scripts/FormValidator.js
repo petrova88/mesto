@@ -22,16 +22,16 @@ class FormValidator {
   _showInputError(input) {
     this._errorElement = this._form.querySelector(`.${input.id}-error`);
     input.classList.add(this._inputErrorClass);
-    this._errorElement.textContent = input.validationMessage; 
+    this._errorElement.textContent = input.validationMessage;
     this._errorElement.classList.add(this._errorClass);
   }
 
   _hideInputError(input) {
     this._errorElement = this._form.querySelector(`.${input.id}-error`);
     input.classList.remove(this._inputErrorClass);
-    this._errorElement.classList.remove(this._errorClass); 
+    this._errorElement.classList.remove(this._errorClass);
     this._errorElement.textContent = input.validationMessage;
-    this._errorElement.textContent = '';
+    this._errorElement.textContent = "";
   }
 
   _deactivateButton() {
@@ -40,25 +40,25 @@ class FormValidator {
   }
 
   _activateButton() {
-    this._buttonElement.classList.add(this._inactiveButtonClass);
-    this._buttonElement.setAttribute("disabled", true);
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.removeAttribute("disabled");
   }
 
   _changeButtonState = () => {
-    if (this._hasInvalidInput()) { 
+    if (this._hasInvalidInput()) {
       this._deactivateButton();
     } else {
       this._activateButton();
     }
-  }
+  };
 
   _checkInputValidity = (input) => {
     if (!input.validity.valid) {
-        this._showInputError(input);
+      this._showInputError(input);
     } else {
-        this._hideInputError(input);
+      this._hideInputError(input);
     }
-  }
+  };
 
   _setValidationEventListeners = () => {
     this._changeButtonState();
@@ -68,7 +68,7 @@ class FormValidator {
         this._changeButtonState();
       });
     });
-  }
+  };
 
   enableValidation = () => {
     this._formList = Array.from(document.querySelectorAll(this._formSelector));
@@ -79,10 +79,10 @@ class FormValidator {
       this._setValidationEventListeners();
     });
   };
-  
+
   resetValidationState = () => {
-    this._inputList.forEach((input) => { 
-        this._hideInputError(input); 
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
     });
     this._changeButtonState();
   };
