@@ -15,7 +15,7 @@ import UserInfo from "./scripts/components/UserInfo.js";
 import PopupWithForm from "./scripts/components/PopupWithForm.js";
 
 // информация о пользователе
-const userInfo = new UserInfo(configInfo);
+const userInfo = new UserInfo(configInfo); //все люкс
 
 // попап с карточкой
 const popupImage = new PopupWithImage('.popup-image');
