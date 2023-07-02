@@ -31,8 +31,8 @@ const formAddCard = document.forms["add-form"];
 const popupAddButton = document.querySelector(".add-button");
 
 const configInfo = {
-  profileNameSelector: '.profile__title',
-  profileJobSelector: '.profile__subtitle'
+  profileNameSelector: ".profile__title",
+  profileJobSelector: ".profile__subtitle",
 };
 
 const validationConfig = {
@@ -44,7 +44,7 @@ const validationConfig = {
   errorClass: "popup__input-error",
 };
 
-export { 
+export {
   initialCards,
   popupEditButton,
   formEditProfile,
