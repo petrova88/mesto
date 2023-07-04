@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 
-// у меня не отрисовываются изображения на странице с html. пути до файлов подчеркивает красным. помогите, пожалуйста, разобраться
-
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title lang="ru">Mesto</title>
-    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="body">
     <div class="page">
       <header class="header">
-        <img src="<%=require('./images/logo.png')%>" class="header__logo" alt="Место" />
+        <img src="./images/logo.png" class="header__logo" alt="Место" />
       </header>
 
       <main>
@@ -20,7 +18,7 @@
           <img
             class="profile__image"
             alt="Аватарка"
-            src="<%=require('./images/main-photo.jpg')%>"
+            src="./images/main_photo.jpg"
           />
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -146,6 +144,6 @@
         </div>
       </div>
     </template>
-    <!-- <script src="./src/index.js" type="module"></script> -->
+    <script src="./pages/index.js" type="module"></script>
   </body>
 </html>
