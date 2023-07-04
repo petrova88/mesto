@@ -1,3 +1,4 @@
+import './pages/index.css';
 import {
   initialCards,
   popupEditButton,
@@ -6,13 +7,13 @@ import {
   popupAddButton,
   configInfo,
   validationConfig,
-} from "../scripts/utils/constans.js";
-import Card from "../scripts/components/Card.js";
-import FormValidator from "../scripts/components/FormValidator.js";
-import PopupWithImage from "../scripts/components/PopupWithImage.js";
-import Section from "../scripts/components/Section.js";
-import UserInfo from "../scripts/components/UserInfo.js";
-import PopupWithForm from "../scripts/components/PopupWithForm.js";
+} from "./scripts/utils/constans.js";
+import Card from "./scripts/components/Card.js";
+import FormValidator from "./scripts/components/FormValidator.js";
+import PopupWithImage from "./scripts/components/PopupWithImage.js";
+import Section from "./scripts/components/Section.js";
+import UserInfo from "./scripts/components/UserInfo.js";
+import PopupWithForm from "./scripts/components/PopupWithForm.js";
 
 // информация о пользователе
 const userInfo = new UserInfo(configInfo);
