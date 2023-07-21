@@ -1,9 +1,10 @@
 export default class Card {
-  constructor(photoData, templateSelector, seeBigPhoto) {
+  constructor(photoData, templateSelector, seeBigPhoto, openDeletePopup) {
     this._photoData = photoData;
     this._link = photoData.link;
     this._title = photoData.title;
     this._seeBigPhoto = seeBigPhoto;
+    this._openDeletePopup = openDeletePopup;
 
     this._cardElement = document
       .querySelector(templateSelector)
@@ -16,7 +17,7 @@ export default class Card {
   }
 
   _handleDelete() {
-    this._cardElement.remove();
+    this._openDeletePopup(this);
   }
 
   _openPhoto() {
@@ -31,6 +32,11 @@ export default class Card {
     );
     this._photoImage.addEventListener("click", this._openPhoto.bind(this));
   };
+
+  removeCard() {
+    this._cardElement.remove();
+    // this._cardElement = null;
+  }
 
   createCard = () => {
     this._photoImage = this._cardElement.querySelector(".photo__image");
