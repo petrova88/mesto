@@ -1,0 +1,9 @@
+.photo__counter {
+    
+    margin: 0;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 3px;
+    font-size: 0.81em;
+    line-height: 1.23;
+}

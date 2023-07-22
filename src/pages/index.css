@@ -47,3 +47,6 @@
 @import url(../blocks/popup/__content/_delete/popup__content_delete.css);
 @import url(../blocks/popup/__submit-btn/_delete/popup__submit-btn_delete.css);
 @import url(../blocks/popup/__input/_avatar/popup__input_avatar.css);
+@import url(../blocks/profile/__avatar-btn/__avatar-btn.css);
+@import url(../blocks/photo/__counter/photo__counter.css);
+@import url(../blocks/photo/__likes-container/photo__likes-container.css);
