@@ -48,17 +48,15 @@ const popupDeleteCard = new PopupDeleteCard('.popup-delete', (card) => {
 
 function createNewCard(element) {
   const card = new Card(element, ".photo-template", popupImage.open, popupDeleteCard.open, (likeElement, cardId) => {
-    if (likeElement.classList.contains('.photo__like_active')) {
+    if (likeElement.classList.contains('photo__like_active')) {
       api.deleteLike(cardId)
         .then(res => {
-          console.log(res)
           card.toggleLike(res.likes)
         })
         .catch((error => console.error(`Ошибка при снятии лайка ${error}`)))
     } else {
       api.addLike(cardId)
         .then(res => {
-          console.log(res)
           card.toggleLike(res.likes)
         })
         .catch((error => console.error(`Ошибка при добавлении лайка ${error}`)))

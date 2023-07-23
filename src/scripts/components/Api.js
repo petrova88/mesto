@@ -6,7 +6,7 @@ export default class Api {
     }
 
     _checkResponse(res) {
-        return res.ok ? res.json() : Promise.reject
+        return res.ok ? res.json() : Promise.reject(`Ой! Ошибка: ${res.status}`)
     }
 
     getInfo() {
@@ -63,14 +63,14 @@ export default class Api {
     }
 
     addLike(cardId) {
-        return fetch(`${this._url}/cards/${cardId}/likes` , {
-            method: 'PUT',
-            headers: {
-                authorization: this._authorization
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
+          method: 'PUT',
+          headers: {
+            authorization: this._authorization
             }
         })
-            .then(this._checkResponse);
-    }
+          .then(this._checkResponse);
+      }
 
     deleteLike(cardId) {
         return fetch(`${this._url}/cards/${cardId}/likes` , {
@@ -81,5 +81,4 @@ export default class Api {
         })
             .then(this._checkResponse);
     }
-
 }

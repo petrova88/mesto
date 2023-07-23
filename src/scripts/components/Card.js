@@ -30,7 +30,7 @@ export default class Card {
   }
 
   _handleDelete() {
-    this._openDeletePopup(this);
+    this._openDeletePopup({ card: this, cardId: this._cardId });
   }
 
   _openPhoto() {
@@ -51,18 +51,18 @@ export default class Card {
   }
 
   _checkLikeStatus() {
-    this._likes.forEach(item => {
-      if (item._id === this._myId) {
+    this._likes.forEach(like => {
+      if (like._id === this._myId) {
         this._likeElement.classList.add("photo__like_active");
         return 
       }
     })
-    this._counter.textContent = this._likesLength;
+    this._counter.textContent = this._likesLength
   }
 
   toggleLike(dataLikes) {
-    this._likeElement.classList.toggle('.photo__like_active');
-    this._counter.textContent = dataLikes.length;
+    this._likeElement.classList.toggle("photo__like_active");
+    this._counter.textContent = dataLikes.length
   }
 
   removeCard() {
