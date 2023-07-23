@@ -1,6 +1,11 @@
 export default class Card {
-  constructor(photoData, templateSelector, seeBigPhoto, openDeletePopup, changeLike) {
-    // console.log(photoData);
+  constructor(
+    photoData,
+    templateSelector,
+    seeBigPhoto,
+    openDeletePopup,
+    changeLike
+  ) {
     this._photoData = photoData;
     this._link = photoData.link;
     this._title = photoData.name;
@@ -17,11 +22,11 @@ export default class Card {
       .querySelector(templateSelector)
       .content.querySelector(".photo")
       .cloneNode(true);
-    this._trashElement = this._cardElement.querySelector('.photo__trash');
-    this._likeElement = this._cardElement.querySelector('.photo__like');
-    this._imageElement = this._cardElement.querySelector('.photo__image');
-    this._subtitle = this._cardElement.querySelector('.photo__text');
-    this._counter = this._cardElement.querySelector('.photo__counter');
+    this._trashElement = this._cardElement.querySelector(".photo__trash");
+    this._likeElement = this._cardElement.querySelector(".photo__like");
+    this._imageElement = this._cardElement.querySelector(".photo__image");
+    this._subtitle = this._cardElement.querySelector(".photo__text");
+    this._counter = this._cardElement.querySelector(".photo__counter");
   }
 
   _handleLike() {
@@ -47,27 +52,29 @@ export default class Card {
   };
 
   _changeVisibleForTrashButton() {
-    this._myId === this._ownerId ? this._trashElement.style.display = 'block' : this._trashElement.style.display = 'none'
+    this._myId === this._ownerId
+      ? (this._trashElement.style.display = "block")
+      : (this._trashElement.style.display = "none");
   }
 
   _checkLikeStatus() {
-    this._likes.forEach(like => {
+    this._likes.forEach((like) => {
       if (like._id === this._myId) {
         this._likeElement.classList.add("photo__like_active");
-        return 
+        return;
       }
-    })
-    this._counter.textContent = this._likesLength
+    });
+    this._counter.textContent = this._likesLength;
   }
 
   toggleLike(dataLikes) {
     this._likeElement.classList.toggle("photo__like_active");
-    this._counter.textContent = dataLikes.length
+    this._counter.textContent = dataLikes.length;
   }
 
   removeCard() {
     this._cardElement.remove();
-    // this._cardElement = null;
+    this._cardElement = null;
   }
 
   createCard = () => {

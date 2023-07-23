@@ -6,7 +6,7 @@ export default class Section {
   }
 
   addCardFromArray(dataCard) {
-    dataCard.forEach(element => {
+    dataCard.forEach((element) => {
       this.renderer(element);
     });
   }
@@ -18,5 +18,4 @@ export default class Section {
   addItemAppend(elementDom) {
     this._container.append(elementDom);
   }
-
 }

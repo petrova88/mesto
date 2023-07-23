@@ -28,13 +28,14 @@ const initialCards = [
 const popupEditButton = document.querySelector(".edit-button");
 const formEditProfile = document.forms["edit-form"];
 const formAddCard = document.forms["add-form"];
-const formEditAvatar = document.forms['form-avatar'];
+const formEditAvatar = document.forms["form-avatar"];
 const popupAddButton = document.querySelector(".add-button");
+const openEditAvatarBtn = document.querySelector(".profile__avatar-btn");
 
 const configInfo = {
   profileNameSelector: ".profile__title",
   profileJobSelector: ".profile__subtitle",
-  profileAvatar: '.profile__image'
+  profileAvatar: ".profile__image",
 };
 
 const validationConfig = {
@@ -52,6 +53,7 @@ export {
   formEditProfile,
   formAddCard,
   formEditAvatar,
+  openEditAvatarBtn,
   popupAddButton,
   configInfo,
   validationConfig,
