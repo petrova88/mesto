@@ -10,13 +10,13 @@ export default class Card {
     this._link = photoData.link;
     this._title = photoData.name;
     this._myId = photoData.myId;
-    this._ownerId = photoData.ownerId;
+    this._ownerId = photoData.owner._id;
     this._seeBigPhoto = seeBigPhoto;
     this._openDeletePopup = openDeletePopup;
     this._likes = photoData.likes;
     this._likesLength = photoData.likes.length;
     this._changeLike = changeLike;
-    this._cardId = photoData.owner._id;
+    this._cardId = photoData._id;
 
     this._cardElement = document
       .querySelector(templateSelector)
@@ -70,6 +70,15 @@ export default class Card {
   toggleLike(dataLikes) {
     this._likeElement.classList.toggle("photo__like_active");
     this._counter.textContent = dataLikes.length;
+  }
+
+  // метод проверяет есть ли лайк на карточке
+  isLiked() {
+    if (this._likeElement.classList.contains("photo__like_active")) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   removeCard() {

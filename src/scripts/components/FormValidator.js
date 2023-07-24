@@ -11,6 +11,7 @@ export default class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     this._buttonElement = this._form.querySelector(this._submitButtonSelector);
+    this._formList = Array.from(document.querySelectorAll(this._formSelector));
   }
 
   _hasInvalidInput = () => {
@@ -71,11 +72,8 @@ export default class FormValidator {
   };
 
   enableValidation = () => {
-    this._formList = Array.from(document.querySelectorAll(this._formSelector));
     this._formList.forEach((form) => {
-      form.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-      });
+      form.addEventListener("submit", (evt) => {});
       this._setValidationEventListeners();
     });
   };

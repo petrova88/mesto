@@ -7,7 +7,7 @@ import {
   formEditAvatar,
   openEditAvatarBtn,
   popupAddButton,
-  configInfo,
+  userDataSectionSelectors,
   validationConfig,
 } from "../scripts/utils/constans.js";
 import Card from "../scripts/components/Card.js";
@@ -18,7 +18,6 @@ import UserInfo from "../scripts/components/UserInfo.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import PopupDeleteCard from "../scripts/components/PopupDeleteCard.js";
 import Api from "../scripts/components/Api.js";
-import { data } from "jquery";
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-71",
@@ -28,13 +27,8 @@ const api = new Api({
   },
 });
 
-// добрый день! у меня есть проблема с лайками - выходит ошибка
-// и с корзиной - она не видна даже на моих карточках
-// наставник сказал, что проблема на стороне практику и с сервером
-// посмотрите, пожалуйста
-
 // информация о пользователе
-const userInfo = new UserInfo(configInfo);
+const userInfo = new UserInfo(userDataSectionSelectors);
 
 // попап с карточкой
 const popupImage = new PopupWithImage(".popup-image");
@@ -48,8 +42,7 @@ const popupDeleteCard = new PopupDeleteCard(
         card.removeCard();
         popupDeleteCard.close();
       })
-      .catch((error) => console.error(`Ошибка при удалении карточки ${error}`))
-      .finally();
+      .catch((error) => console.error(`Ошибка при удалении карточки ${error}`));
   }
 );
 
@@ -60,7 +53,7 @@ function createNewCard(element) {
     popupImage.open,
     popupDeleteCard.open,
     (likeElement, cardId) => {
-      if (likeElement.classList.contains("photo__like_active")) {
+      if (card.isLiked(true)) {
         api
           .deleteLike(cardId)
           .then((res) => {
@@ -83,12 +76,13 @@ function createNewCard(element) {
 }
 
 // отрисовка карточек
-const section = new Section((element) => {
-  section.addItemAppend(createNewCard(element));
+const cardsSection = new Section((element) => {
+  cardsSection.addItemAppend(createNewCard(element));
 }, ".photos");
 
 // редактирование профиля
 const popupProfile = new PopupWithForm(".popup_edit", (data) => {
+  popupProfile.setSubmitButtonText("Сохранение...");
   api
     .setUserInfo(data)
     .then((res) => {
@@ -102,24 +96,27 @@ const popupProfile = new PopupWithForm(".popup_edit", (data) => {
     .catch((error) =>
       console.error(`Ошибка при редактировании профиля ${error}`)
     )
-    .finally(() => popupProfile.setupDefaultText());
+    .finally(() => popupProfile.unsetSubmitButtonText());
 });
 
 // добавление карточек
 const popupAddCard = new PopupWithForm(".popup_mesto", (data) => {
-  Promise.all([api.getInfo(), api.addCard(data)])
-    .then(([dataUser, dataCard]) => {
-      dataCard.myId = dataUser._id;
-      section.addItemPrepend(createNewCard(dataCard));
+  popupAddCard.setSubmitButtonText("Сохранение...");
+  api
+    .addCard(data)
+    .then((res) => {
+      res.myId = res.owner._id;
+      cardsSection.addItemPrepend(createNewCard(res));
       popupAddCard.close();
     })
     .catch((error) =>
       console.error(`Ошибка при создании новой карточки ${error}`)
     )
-    .finally(() => popupAddCard.setupDefaultText());
+    .finally(() => popupAddCard.unsetSubmitButtonText());
 });
 
 const popupEditAvatar = new PopupWithForm(".popup-avatar", (data) => {
+  popupEditAvatar.setSubmitButtonText("Сохранение...");
   api
     .setNewAvatar(data)
     .then((res) => {
@@ -132,7 +129,7 @@ const popupEditAvatar = new PopupWithForm(".popup-avatar", (data) => {
       popupEditAvatar.close();
     })
     .catch((error) => console.error(`Ошибка при обновлении аватара ${error}`))
-    .finally(() => popupEditAvatar.setupDefaultText());
+    .finally(() => popupEditAvatar.unsetSubmitButtonText());
 });
 
 // валидация
@@ -180,7 +177,7 @@ Promise.all([api.getInfo(), api.getCards()])
       job: dataUser.about,
       avatar: dataUser.avatar,
     });
-    section.addCardFromArray(dataCard);
+    cardsSection.addCardFromArray(dataCard);
   })
   .catch((error) =>
     console.error(`Ошибка при создании начальных данных страницы ${error}`)

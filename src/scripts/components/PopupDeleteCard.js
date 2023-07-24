@@ -5,7 +5,6 @@ export default class PopupDeleteCard extends Popup {
     super(popupSelector);
     this._submitFunction = submitFunction;
     this._form = this._popup.querySelector(".popup__input-container");
-    this;
   }
 
   setEventListeners() {
@@ -21,8 +20,4 @@ export default class PopupDeleteCard extends Popup {
     this.element = card;
     this._cardId = cardId;
   };
-
-  close() {
-    super.close();
-  }
 }

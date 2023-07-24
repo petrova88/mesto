@@ -32,7 +32,7 @@ const formEditAvatar = document.forms["form-avatar"];
 const popupAddButton = document.querySelector(".add-button");
 const openEditAvatarBtn = document.querySelector(".profile__avatar-btn");
 
-const configInfo = {
+const userDataSectionSelectors = {
   profileNameSelector: ".profile__title",
   profileJobSelector: ".profile__subtitle",
   profileAvatar: ".profile__image",
@@ -55,6 +55,6 @@ export {
   formEditAvatar,
   openEditAvatarBtn,
   popupAddButton,
-  configInfo,
+  userDataSectionSelectors,
   validationConfig,
 };
