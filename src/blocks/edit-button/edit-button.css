@@ -1,68 +1,53 @@
 .edit-button {
-    /* outline: 1px red solid; */
+    all: unset;
     background-image: url(../../images/edit-button.svg);
-    background-color: #000000;
-    text-decoration: none;
-    border: 1px solid #FFFFFF;
-    position: absolute;
-    top: 8px;
-    left: 264px;
-    width: 18px;
-    height: 18px;
-    box-sizing: border-box;
+    background-size: 10px 10px;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
-}
+    border: 1px solid #fff;
+    height: 18px;
+    width: 18px;
+    align-self: self-end;
+    margin-bottom: 15px;
+    position: absolute;
+  }
 
-.edit-button:hover {
-    opacity: 0.6;
-}
-
-@media screen and (min-width: 321px) and (max-width: 460px) {
+  @media screen and (min-width: 320px) and (max-width: 450px) {
     .edit-button {
-        left: 82.5vw;
+        margin-left: 85%;
     }
 }
 
-@media screen and (min-width: 461px) and (max-width: 600px) {
+@media screen and (min-width: 451px) and (max-width: 600px) {
     .edit-button {
-        left: 73vw;
+        margin-left: 80%;
     }
 }
 
 @media screen and (min-width: 601px) and (max-width: 767px) {
     .edit-button {
-        left: 70vw;
+        margin-left: 75%;
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1000px) {
+  @media screen and (min-width: 768px) and (max-width: 900px) {
     .edit-button {
-        top: 22px;
-        left: 32vw;
-        width: 24px;
+        margin-bottom: 10px;
+        position: sticky;
+        margin-left: 20px;
         height: 24px;
-        background-image: url(../../images/edit-button-big.svg);
+        width: 24px;
     }
 }
 
-@media screen and (min-width: 1001px) and (max-width: 1279px) {
+  @media screen and (min-width: 901px) {
     .edit-button {
-        left: 30vw;
-        top: 9px;
-        width: 24px;
+        margin-bottom: 10px;
+        position: sticky;
+        margin-left: 20px;
         height: 24px;
-        background-image: url(../../images/edit-button-big.svg);
+        width: 24px;
     }
 }
 
-@media screen and (min-width: 1280px) {
-    .edit-button {
-        left: 312px;
-        top: 14px;
-        width: 24px;
-        height: 24px;
-        background-image: url(../../images/edit-button-big.svg);
-    }
-}
+
